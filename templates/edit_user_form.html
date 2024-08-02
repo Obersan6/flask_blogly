@@ -1,0 +1,27 @@
+<!-- Edit user form that returns to the user's detail page, a delete and save button -->
+
+{% extends 'base.html' %}
+{% block title %}Edit User Form {% endblock %}
+
+{% block content %}
+
+<h1>Edit a user</h1>
+
+<form action="{{ url_for('edit_user', user_id=user.id) }}" method="POST">
+    <label for="first_name">First Name</label>
+    <input type="text" name="first_name" value="{{ user.first_name }}" required>
+
+    <label for="last_name">Last Name</label>
+    <input type="text" name="last_name" value="{{ user.last_name }}" required>
+
+    <label for="image_url">Image URL</label>
+    <input type="text" name="image_url" value="{{ user.image_url }}">
+
+    <button type="button" onclick="window.location.href='{{ url_for('user', user_id=user.id) }}'">Cancel</button>
+    <button type="submit">Save</button>
+</form>
+
+{% endblock %}
+
+
+
