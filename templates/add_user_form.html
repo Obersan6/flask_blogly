@@ -4,6 +4,7 @@
 {% block title %}Add-User Form{% endblock %}
 
 {% block content %}
+
 <h1>Create a user</h1>
 <form action="{{ url_for('add_user') }}" method="POST">
     <label for="first_name">First Name</label>
@@ -17,6 +18,7 @@
 
     <button type="submit">Add</button>
 </form>
+
 {% endblock %}
 
 

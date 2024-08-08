@@ -17,7 +17,7 @@
     <label for="image_url">Image URL</label>
     <input type="text" name="image_url" value="{{ user.image_url }}">
 
-    <button type="button" onclick="window.location.href='{{ url_for('user', user_id=user.id) }}'">Cancel</button>
+    <button type="button" onclick="window.location.href='{{url_for('user', user_id=user.id)}}'">Cancel</button>
     <button type="submit">Save</button>
 </form>
 
