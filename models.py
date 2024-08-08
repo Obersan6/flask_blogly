@@ -37,15 +37,6 @@ class Post(db.Model):
 
 
 
-# Next, add another model, for blog posts (call it ***Post***).
-
-# Post should have an:
-
-# - ***id***, like for ***User***
-# - ***title***
-# - ***content***
-# - ***created_at*** a date+time that should automatically default to the when the post is created
-# - a foreign key to the ***User*** table
 
 
     
