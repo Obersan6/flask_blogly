@@ -4,16 +4,19 @@
 {% block title %}Posts{% endblock %}
 
 {% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Posts</h1>
 
-<h1>Posts</h1>
-
-<ul>
-    {% for post in posts %}
-        <li>
-            <a href="{{url_for('show_post', post_id=post.id)}}">{{post.title}}</a>
-        </li>
-    {% endfor %}
-</ul>
-
+    <ul class="list-unstyled ps-4">
+        {% for post in posts %}
+            <li class="mb-2">
+                <a href="{{ url_for('show_post', post_id=post.id) }}" class="text-decoration-none">{{ post.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
+
+
+
  
