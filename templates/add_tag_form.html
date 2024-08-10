@@ -1,0 +1,23 @@
+<!-- Form to add a new tag -->
+
+{% extends 'base.html' %}
+{% block title %}Add Tag{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Create a tag</h1>
+
+    <form action="{{url_for('submit_tag')}}" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Enter a name for the tag" required>
+        </div>
+
+        <!-- FIX THIS BUTTON'S STYLE AND FUNCTIONALITY -->
+        <button>Cancel</button>
+
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+</div>
+{% endblock %}

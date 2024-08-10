@@ -1,7 +1,8 @@
 """Models for Blogly."""
 
+from sqlalchemy import Column, Integer, String, ForeignKey, Table, func
+from sqlalchemy.orm import relationship
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import func
 
 db = SQLAlchemy()
 
@@ -31,8 +32,32 @@ class Post(db.Model):
 
       # foreign key
       user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-      # Create relationship with User
+      # Relationship with User
       user = db.relationship('User', backref=db.backref('posts', lazy=True))
+
+      # Relationship with Tag through PostTag
+      tags = db.relationship('Tag', secondary='post_tags', back_populates='posts')
+
+class Tag(db.Model):
+       __tablename__ = 'tags'
+
+       id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+       name = db.Column(db.String(30), nullable=False, unique=True)
+
+       # Relationship with Post through PostTag
+       posts = db.relationship('Post', secondary='post_tags', back_populates='tags')
+
+
+class PostTag(db.Model):
+      """Joins together a 'Post' and a "Tag'"""
+
+      __tablename__ = 'post_tags'
+      
+      # foreign keys
+      post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), primary_key=True, nullable=False)
+      tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'), primary_key = True, nullable=False)
+
+    
 
 
 
